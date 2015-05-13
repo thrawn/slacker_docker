@@ -1,11 +1,19 @@
 # slacker_docker
 
-cd nginx
+
+
+in nginx
+
 docker build -t thrawn/nginx:1.8 .
-cd php5
+
+in php5
+
 docker build -t thrawn/php5:5.5 .
-cd web
+
+in web
+
 docker build -t thrawn/web:2.0 .
+
 
 then
 
