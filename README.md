@@ -1,7 +1,7 @@
 # slacker_docker
 
 
-
+Manual Builds:
 in nginx
 
 docker build -t thrawn/nginx:1.8 .
@@ -21,4 +21,9 @@ bash deploy.sh
 
 then
 
+docker run -d -p 80:80 --name web -v /srv/www:/srv/www:ro thrawn/web:2.0
+
+
+or just do this:
+make
 docker run -d -p 80:80 --name web -v /srv/www:/srv/www:ro thrawn/web:2.0
