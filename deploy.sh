@@ -10,14 +10,11 @@ else
     git clone https://github.com/thrawn/slacker.git /srv/www
 fi
 
-
-#PUBLIC=$(ec2metadata --public-hostname)
-
-#RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" ${PUBLIC})
-
-#echo ${RESPONSE}
-
 meta=$(ec2metadata --local-hostname)
 
 echo "<pre>$meta</pre>" >> /srv/www/index.php
 echo "</html>" >> /srv/www/index.php
+
+# restart the "web" container
+docker restart web
+docker ps
