@@ -1,7 +1,15 @@
-# slacker_docker
+### slacker_docker
 
 
-Manual Builds:
+#### just do this:
+
+make
+docker run -d -p 80:80 --name web -v /srv/www:/srv/www:ro thrawn/web:2.0
+
+
+or build and tweak manually
+
+#### Manual Builds:
 
 in nginx
 
@@ -24,7 +32,3 @@ then
 
 docker run -d -p 80:80 --name web -v /srv/www:/srv/www:ro thrawn/web:2.0
 
-
-or just do this:
-make
-docker run -d -p 80:80 --name web -v /srv/www:/srv/www:ro thrawn/web:2.0
