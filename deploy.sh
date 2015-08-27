@@ -11,8 +11,13 @@ else
 fi
 
 
-PUBLIC=$(ec2metadata --public-hostname)
+#PUBLIC=$(ec2metadata --public-hostname)
 
-RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" ${PUBLIC})
+#RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" ${PUBLIC})
 
-echo ${RESPONSE}
+#echo ${RESPONSE}
+
+meta=$(ec2metadata --local-hostname)
+
+echo "<pre>$meta</pre>" >> /srv/www/index.php
+echo "</html>" >> /srv/www/index.php
