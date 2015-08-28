@@ -16,5 +16,10 @@ echo "<pre>$meta</pre>" >> /srv/www/index.php
 echo "</html>" >> /srv/www/index.php
 
 # restart the "web" container
+running=$(docker ps | grep web)
+if [[ "$running" ]]; then
 docker restart web
 docker ps
+else
+docker run -d -p 80:80 --name web -v /srv/www:/srv/www:ro thrawn/web:2.0
+fi
